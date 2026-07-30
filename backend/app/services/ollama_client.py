@@ -1,40 +1,37 @@
+import os
 import requests
-import json
+from dotenv import load_dotenv
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "llama3.2"
+load_dotenv()
+
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL_NAME = "llama-3.3-70b-versatile"
 
 
 def call_ollama(prompt: str) -> str:
-    """
-    Sends a prompt to the local Ollama model and returns the raw text response.
-    """
+    if not GROQ_API_KEY:
+        raise RuntimeError("GROQ_API_KEY not found. Make sure .env file exists with your key.")
+
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json",
+    }
     payload = {
         "model": MODEL_NAME,
-        "prompt": prompt,
-        "stream": False,   # we want the full response at once, not streamed chunks
-        "options": {
-            "temperature": 0.2   # low temperature = more consistent, less creative/random output
-        }
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
     }
 
     try:
-        response = requests.post(OLLAMA_URL, json=payload, timeout=120)
+        response = requests.post(GROQ_URL, headers=headers, json=payload, timeout=60)
         response.raise_for_status()
         data = response.json()
-        return data.get("response", "").strip()
-
-    except requests.exceptions.ConnectionError:
-        raise RuntimeError(
-            "Could not connect to Ollama. Make sure Ollama is running "
-            "(try running 'ollama run llama3.2' in a terminal first)."
-        )
-    except requests.exceptions.Timeout:
-        raise RuntimeError("Ollama took too long to respond (timeout).")
+        return data["choices"][0]["message"]["content"].strip()
+    except requests.exceptions.RequestException as e:
+        raise RuntimeError(f"Groq API call failed: {e}")
 
 
-# ---- Quick manual test ----
 if __name__ == "__main__":
-    test_prompt = "Reply with just the word: hello"
-    result = call_ollama(test_prompt)
-    print("Ollama replied:", result)
+    result = call_ollama("Reply with just the word: hello")
+    print("Model replied:", result)
