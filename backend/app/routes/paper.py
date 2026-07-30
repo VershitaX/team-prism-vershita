@@ -12,10 +12,11 @@ from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, Backgro
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models import Paper, Chunk, ProcessingStatus
+from app.models import Paper, Chunk, ProcessingStatus, User
 from app.schemas import PaperUploadOut, PaperStatusOut, PaperChunksOut, ChunkOut
 from app.services.pdf_parser import extract_pages, guess_title
 from app.services.chunker import chunk_pages
+from app.auth import get_current_user
 
 router = APIRouter(prefix="/paper", tags=["paper"])
 
@@ -28,11 +29,12 @@ def upload_paper(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF files are supported.")
 
-    paper = Paper(filename=file.filename, status=ProcessingStatus.uploaded)
+    paper = Paper(filename=file.filename, status=ProcessingStatus.uploaded, owner_id=current_user.id)
     db.add(paper)
     db.commit()
     db.refresh(paper)
@@ -96,9 +98,41 @@ def process_paper(paper_id: str, pdf_path: str):
         db.close()
 
 
+@router.get("/mine", response_model=list[PaperStatusOut])
+def list_my_papers(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Returns every paper the logged-in user has uploaded, newest first."""
+    papers = (
+        db.query(Paper)
+        .filter(Paper.owner_id == current_user.id)
+        .order_by(Paper.created_at.desc())
+        .all()
+    )
+    result = []
+    for paper in papers:
+        chunk_count = db.query(Chunk).filter(Chunk.paper_id == paper.id).count()
+        result.append(PaperStatusOut(
+            paper_id=paper.id,
+            filename=paper.filename,
+            title=paper.title,
+            status=paper.status.value,
+            page_count=paper.page_count,
+            chunk_count=chunk_count,
+            error_message=paper.error_message,
+            created_at=paper.created_at,
+        ))
+    return result
+
+
 @router.get("/{paper_id}/status", response_model=PaperStatusOut)
-def get_status(paper_id: str, db: Session = Depends(get_db)):
-    paper = db.query(Paper).filter(Paper.id == paper_id).first()
+def get_status(
+    paper_id: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    paper = db.query(Paper).filter(Paper.id == paper_id, Paper.owner_id == current_user.id).first()
     if not paper:
         raise HTTPException(status_code=404, detail="Paper not found.")
 
@@ -117,8 +151,12 @@ def get_status(paper_id: str, db: Session = Depends(get_db)):
 
 
 @router.get("/{paper_id}/chunks", response_model=PaperChunksOut)
-def get_chunks(paper_id: str, db: Session = Depends(get_db)):
-    paper = db.query(Paper).filter(Paper.id == paper_id).first()
+def get_chunks(
+    paper_id: str,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    paper = db.query(Paper).filter(Paper.id == paper_id, Paper.owner_id == current_user.id).first()
     if not paper:
         raise HTTPException(status_code=404, detail="Paper not found.")
 
