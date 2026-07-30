@@ -1,7 +1,7 @@
 import { Paper, Claim, Brief, Flashcard, ProcessingEvent, PaperStatus, User, AuthResponse } from "./types";
 import { MOCK_PAPER, MOCK_CLAIMS, MOCK_BRIEF, MOCK_FLASHCARDS, MOCK_PROCESSING_LOG } from "./mockData";
 
-const USE_MOCK = true;
+const USE_MOCK = false;
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
