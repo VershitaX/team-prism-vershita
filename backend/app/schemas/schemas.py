@@ -40,3 +40,19 @@ class ExtractRequest(BaseModel):
 class ExtractResponse(BaseModel):
     paper_id: str
     claims: List[Claim]
+class ConceptNode(BaseModel):
+    id: str
+    label: str          # short concept name, e.g. "Attention Mechanism"
+    type: str           # "concept" | "method" | "result" | "limitation"
+
+
+class ConceptEdge(BaseModel):
+    source: str          # node id
+    target: str          # node id
+    relationship: str    # short verb phrase, e.g. "reduces", "enables", "is evaluated by"
+
+
+class ConceptMap(BaseModel):
+    paper_id: str
+    nodes: List[ConceptNode]
+    edges: List[ConceptEdge]

@@ -4,6 +4,8 @@ from app.services.extraction import extract_claims_from_chunk
 from app.services.verification import verify_all_claims
 from app.services.brief_generation import generate_brief
 from app.services.flashcard_generation import generate_flashcards
+from app.services.concept_map_generation import generate_concept_map
+from app.schemas.schemas import ConceptMap
 router = APIRouter(prefix="/paper", tags=["extraction"])
 
 # Temporary in-memory storage until Person A's database is ready
@@ -64,3 +66,11 @@ def get_flashcards(paper_id: str):
         raise HTTPException(status_code=404, detail="No claims found for this paper_id. Run /extract first.")
 
     return generate_flashcards(paper_id, claims)
+
+
+@router.get("/{paper_id}/concept-map", response_model=ConceptMap)
+def get_concept_map(paper_id: str):
+    claims = _claims_store.get(paper_id)
+    if claims is None:
+        raise HTTPException(status_code=404, detail="No claims found for this paper_id. Run /extract first.")
+    return generate_concept_map(paper_id, claims)
