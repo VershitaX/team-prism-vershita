@@ -18,7 +18,7 @@ export default function SignupPage() {
     try {
       const auth = await signupUser(name, email, password);
       saveSession(auth);
-      router.push("/");
+      window.location.href = "/";
     } catch (err) {
       setError(err instanceof Error ? err.message : "Signup failed.");
     } finally {
