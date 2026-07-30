@@ -2,7 +2,8 @@ from fastapi import APIRouter, HTTPException
 from app.schemas.schemas import ExtractRequest, ExtractResponse, Chunk, Claim
 from app.services.extraction import extract_claims_from_chunk
 from app.services.verification import verify_all_claims
-
+from app.services.brief_generation import generate_brief
+from app.services.flashcard_generation import generate_flashcards
 router = APIRouter(prefix="/paper", tags=["extraction"])
 
 # Temporary in-memory storage until Person A's database is ready
@@ -48,3 +49,18 @@ def get_claims(paper_id: str):
         raise HTTPException(status_code=404, detail="No claims found for this paper_id. Run /extract first.")
 
     return ExtractResponse(paper_id=paper_id, claims=claims)
+@router.get("/{paper_id}/brief")
+async def get_brief(paper_id: str):
+    claims = _claims_store.get(paper_id)
+    if claims is None:
+        raise HTTPException(status_code=404, detail="No claims found for this paper_id. Run /extract first.")
+
+    return await generate_brief(paper_id, claims)
+
+@router.get("/{paper_id}/flashcards")
+def get_flashcards(paper_id: str):
+    claims = _claims_store.get(paper_id)
+    if claims is None:
+        raise HTTPException(status_code=404, detail="No claims found for this paper_id. Run /extract first.")
+
+    return generate_flashcards(paper_id, claims)
