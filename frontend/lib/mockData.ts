@@ -67,6 +67,7 @@ export const MOCK_BRIEF: Brief = {
     { heading: "Key Result", body: "New state-of-the-art BLEU score on English-to-German translation, trained in a fraction of the time of comparable models.", citation_ids: ["c2", "c3"] },
     { heading: "Caveat", body: "Handling of very long sequences is flagged as an open direction rather than a solved problem.", citation_ids: ["c4"] },
   ],
+  concept_map: "graph TD\n  A[Problem: Sequential RNNs are slow] --> B[Method: Self-Attention]\n  B --> C[Architecture: Encoder-Decoder Transformer]\n  C --> D[Result: SOTA BLEU score]\n  C --> E[Limitation: Long-range structure]",
 };
 
 export const MOCK_FLASHCARDS: Flashcard[] = [

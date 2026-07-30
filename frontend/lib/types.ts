@@ -52,10 +52,22 @@ export interface Brief {
   paper_id: string;
   summary: string;
   sections: { heading: string; body: string; citation_ids?: string[] }[];
+  concept_map?:string;
 }
 
 export interface ProcessingEvent {
   ts: string;
   step: string;
   detail: string;
+}
+
+export interface User {
+  user_id: string;
+  name: string;
+  email: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
 }

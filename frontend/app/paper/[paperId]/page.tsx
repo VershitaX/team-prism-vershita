@@ -8,11 +8,13 @@ import Tabs from "@/components/Tabs";
 import ClaimCard from "@/components/ClaimCard";
 import CitationTag from "@/components/CitationTag";
 import Flashcard from "@/components/Flashcard";
+import ConceptMap from "@/components/ConceptMap";
 
 const TABS = [
   { id: "brief", label: "Brief" },
   { id: "claims", label: "Claims" },
   { id: "flashcards", label: "Flashcards" },
+  { id: "concept", label: "Concept Map" },
 ];
 
 export default function PaperDashboard() {
@@ -115,6 +117,9 @@ export default function PaperDashboard() {
           )}
           {active === "flashcards" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">{flashcards.map((f) => <Flashcard key={f.id} card={f} />)}</div>
+          )}
+          {active === "concept" && brief.concept_map && (
+          <ConceptMap definition={brief.concept_map} />
           )}
         </div>
       </div>
