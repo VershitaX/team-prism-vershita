@@ -3,7 +3,6 @@ from app.schemas.schemas import Chunk, Claim, Citation
 import json
 import uuid
 
-
 def build_extraction_prompt(chunk: Chunk) -> str:
     return f"""You are analyzing a section of a research paper.
 
@@ -14,7 +13,11 @@ Text:
 {chunk.text}
 \"\"\"
 
-Extract the following as a JSON array. Each item must have:
+IMPORTANT: If this text is a references/bibliography list, author index, table of contents,
+or acknowledgments section — with no actual claims, findings, or arguments made by the
+paper's own authors — respond with an empty JSON array: []
+
+Otherwise, extract the following as a JSON array. Each item must have:
 - "claim_text": a single clear claim, piece of evidence, or limitation from this text
 - "claim_type": one of "claim", "evidence", "limitation"
 
@@ -26,7 +29,6 @@ Example format:
   {{"claim_text": "The proposed method outperforms baseline approaches.", "claim_type": "claim"}}
 ]
 """
-
 
 def extract_claims_from_chunk(chunk: Chunk) -> list[Claim]:
     prompt = build_extraction_prompt(chunk)
