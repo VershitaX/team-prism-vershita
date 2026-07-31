@@ -1,5 +1,6 @@
-from app.services.ollama_client import call_ollama
+from app.services.groq_client import call_groq
 from app.schemas import Chunk, Claim, Citation
+from concurrent.futures import ThreadPoolExecutor
 import json
 import uuid
 
@@ -30,7 +31,7 @@ Example format:
 
 def extract_claims_from_chunk(chunk: Chunk) -> list[Claim]:
     prompt = build_extraction_prompt(chunk)
-    raw_response = call_ollama(prompt)
+    raw_response = call_groq(prompt)
 
     # Clean up in case the model adds markdown fences anyway
     cleaned = raw_response.strip()
@@ -41,8 +42,8 @@ def extract_claims_from_chunk(chunk: Chunk) -> list[Claim]:
     try:
         items = json.loads(cleaned)
     except json.JSONDecodeError:
-        print("Failed to parse JSON from Ollama response:")
-        print(raw_response)
+        print(f"[EXTRACT] Failed to parse JSON for chunk {chunk.chunk_id}:", flush=True)
+        print(raw_response, flush=True)
         return []
 
     claims = []
@@ -61,6 +62,29 @@ def extract_claims_from_chunk(chunk: Chunk) -> list[Claim]:
         claims.append(claim)
 
     return claims
+
+
+def extract_claims_from_chunks(chunks: list[Chunk], max_workers: int = 10) -> list[Claim]:
+    """
+    Extract claims from multiple chunks IN PARALLEL using a thread pool.
+    This is much faster than looping sequentially, since each Groq call
+    is a network I/O wait - running them concurrently gives a big speedup
+    (e.g. 56 chunks at ~0.5s each sequentially = ~28s, but in parallel
+    with 10 workers it's closer to ~3-5s).
+    """
+    all_claims: list[Claim] = []
+    total = len(chunks)
+    completed = 0
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # executor.map preserves order and blocks until all are done,
+        # but the calls themselves run concurrently under the hood.
+        for claims in executor.map(extract_claims_from_chunk, chunks):
+            completed += 1
+            print(f"[EXTRACT] {completed}/{total} chunks done - got {len(claims)} claims", flush=True)
+            all_claims.extend(claims)
+
+    return all_claims
 
 
 # ---- Quick manual test using a fake chunk ----

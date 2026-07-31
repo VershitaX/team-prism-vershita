@@ -1,5 +1,6 @@
-from app.services.ollama_client import call_ollama
+from app.services.groq_client import call_groq
 from app.schemas import Claim, Chunk
+from concurrent.futures import ThreadPoolExecutor
 import json
 
 
@@ -35,7 +36,7 @@ def verify_claim(claim: Claim, chunk: Chunk) -> Claim:
     Returns the claim updated with status and confidence.
     """
     prompt = build_verification_prompt(claim, chunk.text)
-    raw_response = call_ollama(prompt)
+    raw_response = call_groq(prompt)
 
     cleaned = raw_response.strip()
     if cleaned.startswith("```"):
@@ -47,28 +48,38 @@ def verify_claim(claim: Claim, chunk: Chunk) -> Claim:
         claim.status = result.get("status", "flagged")
         claim.confidence = float(result.get("confidence", 0.0))
     except (json.JSONDecodeError, ValueError):
-        print("Failed to parse verification response:")
-        print(raw_response)
+        print(f"[VERIFY] Failed to parse verification response for claim {claim.claim_id}:", flush=True)
+        print(raw_response, flush=True)
         claim.status = "flagged"
         claim.confidence = 0.0
 
     return claim
 
 
-def verify_all_claims(claims: list[Claim], chunks_by_id: dict[str, Chunk]) -> list[Claim]:
+def verify_all_claims(claims: list[Claim], chunks_by_id: dict[str, Chunk], max_workers: int = 10) -> list[Claim]:
     """
-    Verifies a list of claims. chunks_by_id maps chunk_id -> Chunk,
-    so we can look up the right source text for each claim's citation.
+    Verifies a list of claims IN PARALLEL using a thread pool.
+    chunks_by_id maps chunk_id -> Chunk, so we can look up the right
+    source text for each claim's citation.
     """
-    verified = []
-    for claim in claims:
+    def verify_one(claim: Claim) -> Claim:
         chunk = chunks_by_id.get(claim.citation.chunk_id)
         if chunk is None:
             claim.status = "flagged"
             claim.confidence = 0.0
-        else:
-            claim = verify_claim(claim, chunk)
-        verified.append(claim)
+            return claim
+        return verify_claim(claim, chunk)
+
+    verified: list[Claim] = []
+    total = len(claims)
+    completed = 0
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for result in executor.map(verify_one, claims):
+            completed += 1
+            print(f"[VERIFY] {completed}/{total} claims done - {result.status}", flush=True)
+            verified.append(result)
+
     return verified
 
 

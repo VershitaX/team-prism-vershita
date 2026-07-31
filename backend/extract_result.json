@@ -1,0 +1,577 @@
+{
+  "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+  "claims": [
+    {
+      "claim_id": "900ee5e9",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Aging induces structural alterations in SR-Mitochondria interaction in skeletal muscle.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "5d0b8b57",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The close physical proximity of SR and mitochondrial membranes shows contacts called mitochondria-associated membranes (MAMs).",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "da5c2e70",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "MAMs network regulates localization of Ca2+-signaling, lipid transport, and other signalling molecules like reactive oxygen species.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "cb58d514",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Mitofusins (MFN1 and MFN2) are classical tethering mechanisms that stabilize the MAMs network.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "78a795cd",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Emerging consensus suggests that MAMs in the skeletal muscle play a crucial role.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "219d9e2b",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Sarcopenia is a major factor in geriatric functional decline and frailty, contributing to the lowering of self-confidence.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "c7902181",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Recent literature highlights the role of MAMs network in smooth functioning of muscle.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "88ebf02e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The aging associated reduction of muscle mass is a major factor in geriatric functional decline and frailty.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a260e0c4-00eb-4f18-9749-d934319bb0e9",
+        "page": 1,
+        "section": "Unknown"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "b762adbd",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Skeletal muscle is far more than a simple mechanical machine for locomotion with several homeostatic functions.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "d1f6b99f",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "It is a major organ contributing more than 40 percent of body mass and energy utilization; hence a focal point of metabolism.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "165ea472",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Muscle mass starts to decline with aging process compromising physical performance that is generally known as \u201cSarcopenia\u201d.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "7c29ffe2",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The whole-body metabolism is also regulated indirectly by skeletal muscle via serving as a source of myokines.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "c2eb4b91",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Calcium (Ca2+) plays a vital role both in governing the contractile performance as well as regulating metabolic adaptability.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "88f98ed1",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The SR is the major Ca2+-store inside the myocyte and is very intricately organised forming junctions with sarcolemma (on T-tubule) that are spatially localized on the sarcomere.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "98da7a23",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Skeletal muscle is a major organ contributing more than 40 percent of body mass and energy utilization.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "5c8e883b",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Muscle mass starts to decline with aging process.",
+      "claim_type": "limitation",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "fa8bfda5",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The SR is the major Ca2+-store inside the myocyte.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "a709c30a-42de-4dd8-9e7a-0be3446a9d48",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "1bac70c0",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Mitochondria act as an alternative Ca2+-store.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "764603ab",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Mitochondria have precise spatial arrangements across the sarcomere with junctional contact points with the SR.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "041a55f9",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Skeletal muscle exhibit diversity in functions, metabolic profiles, and structural characteristics.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "90524780",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Skeletal muscle fibers are categorized into type I (Slow Twitch) or type II (Fast Twitch) based on myosin heavy chain isoforms.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "47440c2e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Type I fibers rely on oxidative metabolism and are resistant to fatigue.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "6103d654",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Type II fibers generate rapid, forceful contractions but fatigue quickly.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "0c1f35d4",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Most skeletal muscles in larger mammals have both type I and type II fibers in varying ratios.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "2f242b9e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "During aging, type II fiber size and number is selectively reduced.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "ae03ad5e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Aging leads to a shift in fiber-type composition toward type I, compromising movement speed.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "09cb6a49-46b7-4836-b649-5262e72d04d5",
+        "page": 2,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "d215c2f2",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Aging triggers specific biochemical changes in skeletal muscle.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "c20ffe1d",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Disruption of Ca2+ homeostasis includes both SR and mitochondria.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "42fad211",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Increased leakiness of ryanodine receptor (RyR1) originates from faulty post translational modification like oxidation and nitrosylation.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "34236bba",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Downregulation in the expression of SERCA pump and aberration in its micropeptide regulators occur.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "f6b80dff",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Deterioration of T-tubule integrity and dyad/triad arrangement and distribution impair force production and muscle relaxation.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "42af14b7",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Reduction in metabolic flexibility marks a turning point in the progression of sarcopenia.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "54415d5d",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Muscle mitochondria exhibit changes including fragmentation and accumulation of damaged mitochondria.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "10b742af",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Aged skeletal muscle mitochondria exhibit structural changes including cristae arrangements/abundance, intermembranous space.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "e4039971",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Impairment in tethering (mediated by mitofusins) and MAM (mitochondria-associated membrane) integrity dampens the interplay between SR-mitochondria.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "a2f71988",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Changes in SR-mitochondria interplay affect intra-myoplasmic Ca2+-homeostasis, lipid trafficking, and redox balance.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "c2b13be5-2030-470e-bf4e-afee11bec0c8",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "458e535e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Neuromuscular denervation and organellar decay contribute to the progression rate of sarcopenia.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "56ee7669",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Ca2+ dysregulation amplifies mitochondrial stress that produce reactive oxygen species (ROS).",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "9f2268ba",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Elevated ROS further oxidizes SR channels.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "41f048bc",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Lipid accumulation disrupts physical contacts collectively converging to impaired SR-mitochondrial crosstalk.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "983bf04e",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Recent studies have highlighted that during metabolic diseases; SR-mitochondrial physical proximity is weakened.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "c455d40d",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "Some recent studies have highlighted that during metabolic diseases; SR-mitochondrial physical proximity is weakened that distorts the localized Ca2+ fluxes causing asynchrony in muscle function including ATP production and SR Ca2+-cycling.",
+      "claim_type": "evidence",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "73560e1c",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The review aims to investigate if the disruption of SR-mitochondrial coupling contributes to the onset and progression of sarcopenia.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    },
+    {
+      "claim_id": "7e84ec10",
+      "paper_id": "dedfc22c-c30f-4dab-bb83-443d67e7ac8b",
+      "claim_text": "The review particularly analyzes the role of the molecular determinants that govern Ca2+-signaling microdomains and the integrity of SR-mitochondrial communication networks.",
+      "claim_type": "claim",
+      "citation": {
+        "chunk_id": "ebfc4b17-fef2-4f59-af6e-095e185248e6",
+        "page": 3,
+        "section": "Introduction"
+      },
+      "status": "verified",
+      "confidence": 0.9
+    }
+  ]
+}

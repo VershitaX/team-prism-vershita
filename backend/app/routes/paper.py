@@ -86,6 +86,9 @@ def process_paper(paper_id: str, pdf_path: str):
         paper.status = ProcessingStatus.chunked
         db.commit()
 
+        from app.routes.extract import run_extraction_pipeline
+        run_extraction_pipeline(paper.id, db)
+
     except Exception as e:
         paper = db.query(Paper).filter(Paper.id == paper_id).first()
         if paper:
