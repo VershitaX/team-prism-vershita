@@ -113,38 +113,44 @@ export async function getFlashcards(paperId: string): Promise<Flashcard[]> {
   return res.json();
 }
 
-export async function signupUser(name: string, email: string, password: string): Promise<AuthResponse> {
+export async function signupUser(fullName: string, email: string, password: string): Promise<AuthResponse> {
   if (USE_MOCK) {
     await delay(500);
-    const user: User = { user_id: "u1", name, email };
-    return { user, token: "mock-token" };
+    const user: User = { id: "u1", email, full_name: fullName, created_at: new Date().toISOString() };
+    return { access_token: "mock-token", token_type: "bearer", user };
   }
   const res = await fetch(`${API_BASE}/auth/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ email, password, full_name: fullName }),
   });
-  if (!res.ok) throw new Error(`Signup failed: ${res.status}`);
+  if (!res.ok) {
+    const data = await res.json().catch(() => null);
+    throw new Error(data?.detail ?? `Signup failed: ${res.status}`);
+  }
   return res.json();
 }
 
 export async function loginUser(email: string, password: string): Promise<AuthResponse> {
   if (USE_MOCK) {
     await delay(500);
-    const user: User = { user_id: "u1", name: "Demo User", email };
-    return { user, token: "mock-token" };
+    const user: User = { id: "u1", email, full_name: "Demo User", created_at: new Date().toISOString() };
+    return { access_token: "mock-token", token_type: "bearer", user };
   }
   const res = await fetch(`${API_BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   });
-  if (!res.ok) throw new Error(`Login failed: ${res.status}`);
+  if (!res.ok) {
+    const data = await res.json().catch(() => null);
+    throw new Error(data?.detail ?? `Login failed: ${res.status}`);
+  }
   return res.json();
 }
 
 export function saveSession(auth: AuthResponse) {
-  localStorage.setItem("token", auth.token);
+  localStorage.setItem("token", auth.access_token);
   localStorage.setItem("user", JSON.stringify(auth.user));
 }
 

@@ -17,7 +17,7 @@ export default function LoginPage() {
     try {
       const auth = await loginUser(email, password);
       saveSession(auth);
-      router.push("/");
+      window.location.href = "/";
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login failed.");
     } finally {

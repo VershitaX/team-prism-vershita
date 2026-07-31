@@ -4,3 +4,5 @@ sqlalchemy
 pymupdf
 python-multipart
 pydantic
+pyjwt
+bcrypt

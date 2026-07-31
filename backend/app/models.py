@@ -10,7 +10,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, String, Integer, Text, DateTime, ForeignKey, Enum, Float
+from sqlalchemy import Column, String, Integer, Text, DateTime, ForeignKey, Enum, Float, Boolean
 from sqlalchemy.orm import relationship
 
 from app.database import Base
@@ -18,6 +18,19 @@ from app.database import Base
 
 def gen_id() -> str:
     return str(uuid.uuid4())
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(String, primary_key=True, default=gen_id)
+    email = Column(String, unique=True, nullable=False, index=True)
+    hashed_password = Column(String, nullable=False)
+    full_name = Column(String, nullable=True)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    papers = relationship("Paper", back_populates="owner", cascade="all, delete-orphan")
 
 
 class ProcessingStatus(str, enum.Enum):
@@ -35,6 +48,7 @@ class Paper(Base):
     __tablename__ = "papers"
 
     id = Column(String, primary_key=True, default=gen_id)
+    owner_id = Column(String, ForeignKey("users.id"), nullable=False)
     filename = Column(String, nullable=False)
     title = Column(String, nullable=True)          # guessed from PDF later
     status = Column(Enum(ProcessingStatus), default=ProcessingStatus.uploaded)
@@ -42,6 +56,7 @@ class Paper(Base):
     page_count = Column(Integer, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
+    owner = relationship("User", back_populates="papers")
     chunks = relationship("Chunk", back_populates="paper", cascade="all, delete-orphan")
     claims = relationship("Claim", back_populates="paper", cascade="all, delete-orphan")
 

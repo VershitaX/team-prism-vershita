@@ -29,7 +29,7 @@ export default function Navbar() {
         <nav className="flex items-center gap-4 text-sm text-ink-muted">
           {user ? (
             <>
-              <span className="text-ink">{user.name}</span>
+              <span className="text-ink">{user.full_name}</span>
               <button onClick={handleLogout} className="hover:text-ink transition-colors cursor-pointer">
                 Log out
               </button>

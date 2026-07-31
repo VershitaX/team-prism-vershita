@@ -1,12 +1,14 @@
 """
 App entrypoint. Run with:  uvicorn app.main:app --reload --port 8000
+
 Then open http://localhost:8000/docs for the interactive API playground
 (FastAPI auto-generates this — try uploading a PDF right from the browser).
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from app.database import Base, engine
-from app.routes import paper, extract
+from app.routes import paper, auth
 
 # Create all tables on startup if they don't exist yet
 Base.metadata.create_all(bind=engine)
@@ -22,8 +24,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
 app.include_router(paper.router)
-app.include_router(extract.router)
 
 
 @app.get("/")
